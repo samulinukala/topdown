@@ -17,10 +17,12 @@ public class playerHP : MonoBehaviour
     public float deathDelay;
     public GameObject hitParticle;
 
+    public Component[] colliders;
     public Component[] spriteRenderers;
 
     void Start()
     {
+        colliders = GetComponentsInChildren<BoxCollider2D>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         health = maxHealth;
         fullHPSprite.SetActive(true);
@@ -65,6 +67,11 @@ public class playerHP : MonoBehaviour
         {
             health = 0;
             StartCoroutine(deathDelayCo());
+
+            foreach (BoxCollider2D boxObj in colliders)
+            {
+                boxObj.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
         if (invulnerable)
         {
@@ -72,12 +79,20 @@ public class playerHP : MonoBehaviour
             {
                 obj.GetComponent<SpriteRenderer>().color = Color.red;
             }
+            foreach (BoxCollider2D boxObj in colliders)
+            {
+                boxObj.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
         if (!invulnerable)
         {
             foreach (SpriteRenderer obj in spriteRenderers)
             {
                 obj.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            foreach (BoxCollider2D boxObj in colliders)
+            {
+                boxObj.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
     }
@@ -95,16 +110,13 @@ public class playerHP : MonoBehaviour
         invulnerable = true;
         Instantiate(hitParticle, gameObject.transform.position, gameObject.transform.rotation);
         health -= 1;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(damageDelay);
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
         invulnerable = false;
     }
 
     public IEnumerator deathDelayCo()
     {
         Instantiate(hitParticle, gameObject.transform.position, gameObject.transform.rotation);
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
     }
