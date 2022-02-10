@@ -9,7 +9,7 @@ public class playermover : MonoBehaviour
     public float moveForce=5;
     public Vector2 movementVector;
     public CharacterController controller;
-    public float deadZone=0.05f;
+    public float deadZone=0.025f;
     public float contAHor;
     public float contAVer;
     public float angle;
