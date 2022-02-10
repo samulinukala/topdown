@@ -6,10 +6,11 @@ public class projectile : MonoBehaviour
 {
     public float moveSpeed=50;
     public Vector2 playerLoc;
+    public GameObject spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
-        playerLoc = GameObject.FindObjectOfType<playermover>().gameObject.transform.position-transform.position;
+        playerLoc = spawnPoint.transform.position
         GetComponent<Rigidbody2D>().AddForce(playerLoc.normalized*moveSpeed, ForceMode2D.Impulse);
     }
 
