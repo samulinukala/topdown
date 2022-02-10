@@ -425,7 +425,7 @@ MonoBehaviour:
   moveForce: 10
   movementVector: {x: 0, y: 0}
   controller: {fileID: 0}
-  deadZone: 0.001
+  deadZone: 0.4
   contAHor: 0
   contAVer: 0
   angle: 0
