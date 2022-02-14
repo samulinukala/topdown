@@ -19,6 +19,8 @@ public class playerHP : MonoBehaviour
 
     public Component[] colliders;
     public Component[] spriteRenderers;
+    public Color invincibleColor;
+    public Color regularColor;
 
     void Start()
     {
@@ -77,7 +79,7 @@ public class playerHP : MonoBehaviour
         {
             foreach (SpriteRenderer obj in spriteRenderers)
             {
-                obj.GetComponent<SpriteRenderer>().color = Color.red;
+                obj.GetComponent<SpriteRenderer>().color = invincibleColor;
             }
             foreach (BoxCollider2D boxObj in colliders)
             {
@@ -88,7 +90,7 @@ public class playerHP : MonoBehaviour
         {
             foreach (SpriteRenderer obj in spriteRenderers)
             {
-                obj.GetComponent<SpriteRenderer>().color = Color.white;
+                obj.GetComponent<SpriteRenderer>().color = regularColor;
             }
             foreach (BoxCollider2D boxObj in colliders)
             {
