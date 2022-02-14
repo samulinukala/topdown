@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8097561447025456997}
   - component: {fileID: 1794655892221289977}
   - component: {fileID: 8606965986419144418}
+  - component: {fileID: 5156779661116169932}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Untagged
@@ -97,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d504ce9aa22ab4eab6581eea74a23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 50
+  playerLoc: {x: 0, y: 0}
+  spawnPoint: {fileID: 0}
 --- !u!50 &1794655892221289977
 Rigidbody2D:
   serializedVersion: 4
@@ -119,6 +123,22 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &8606965986419144418
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779830397860373806}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!58 &5156779661116169932
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

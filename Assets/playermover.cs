@@ -19,6 +19,8 @@ public class playermover : MonoBehaviour
     public float fireCooldown=0.5f;
     public float fireCalc = 0;
     public bool canFire=true;
+    public float movementDeadZone=0.4f;
+    public GameObject gunBarrel;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +60,11 @@ public class playermover : MonoBehaviour
 
         }
         // Debug.Log("move"+movementVector);
-        controller.Move(movementVector);
+        if(new Vector2(horizontal,vertical).magnitude>movementDeadZone)
+            
+            controller.Move(movementVector);
+        
+       
     }
     public void handleFire()
     {
@@ -66,7 +72,7 @@ public class playermover : MonoBehaviour
         {
             canFire = false;
             Debug.Log("fire");
-            Instantiate(projectile, new Vector3(contAHor,contAVer, 0), transform.rotation);
+            Instantiate(projectile,gunBarrel.transform.position, transform.rotation);
         }
         else
         {
