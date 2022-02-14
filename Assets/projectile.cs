@@ -6,35 +6,42 @@ public class projectile : MonoBehaviour
 {
     public float moveSpeed = 50;
     public Vector2 playerLoc;
-    
+    public List<GameObject> players;
 
     public GameObject spawnPoint;
     // Start is called before the first frame update
-   
-        
 
-        // Start is called before the first frame update
-        void Start()
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerLoc = GameObject.FindObjectOfType<playermover>().gameObject.transform.position - transform.position;
+
+        GetComponent<Rigidbody2D>().AddForce(-playerLoc.normalized * moveSpeed, ForceMode2D.Impulse);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        players.Clear();
+        foreach (pawn p in GameObject.FindObjectsOfType<pawn>())
         {
-            playerLoc = GameObject.FindObjectOfType<playermover>().gameObject.transform.position - transform.position;
-
-            GetComponent<Rigidbody2D>().AddForce(-playerLoc.normalized * moveSpeed, ForceMode2D.Impulse);
+            players.Add(p.gameObject);
         }
-
-        // Update is called once per frame
-        void Update()
+        foreach (GameObject i in players)
         {
-
-        }
-        public void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.GetComponent<playerHP>() != null)
+            if (GetComponent<Collider2D>().bounds.Intersects(i.GetComponent<Collider2D>().bounds))
             {
-                collision.GetComponent<playerHP>().health-=1;
-                collision.transform.parent.GetComponent<pawn>().takedamage();
+                i.GetComponentInChildren<playerHP>().health -= 1;
+                i.GetComponent<pawn>().takedamage();
                 Destroy(gameObject);
             }
         }
+    } 
+        
+           
+        
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
