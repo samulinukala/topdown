@@ -660,7 +660,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 0
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Horizontal3
     descriptiveName: 
@@ -710,7 +710,7 @@ InputManager:
     axis: 3
     joyNum: 3
   - serializedVersion: 3
-    m_Name: AimverticalController3
+    m_Name: AimVerticalController3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
