@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMover2 : MonoBehaviour
+public class playerMover2 : pawn
 {
     public float horizontal;
     public float vertical;
@@ -13,8 +13,7 @@ public class playerMover2 : MonoBehaviour
     public float contAHor;
     public float contAVer;
     public float angle;
-    public float damage = 33.3333f;
-    public float health = 100;
+ 
     public GameObject projectile;
     public float fireCooldown = 0.5f;
     public float fireCalc = 0;
@@ -43,14 +42,7 @@ public class playerMover2 : MonoBehaviour
         handleFire();
 
     }
-    public void takeDamage()
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+   
     public void handleMovement()
     {
         vertical = Input.GetAxisRaw("Vertical2");

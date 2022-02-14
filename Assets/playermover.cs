@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermover : MonoBehaviour
+public class playermover : pawn
 {
     public float horizontal ;
     public float vertical;
@@ -13,8 +13,7 @@ public class playermover : MonoBehaviour
     public float contAHor;
     public float contAVer;
     public float angle;
-    public float damage = 33.3333f;
-    public float health = 100;
+
     public GameObject projectile;
     public float fireCooldown=0.5f;
     public float fireCalc = 0;
@@ -28,8 +27,7 @@ public class playermover : MonoBehaviour
     public float dashCooldown = 2.5f;
     public float dashCooldownCalc = 0;
     public bool dashInCoolDown=false;
-   
-    // Start is called before the first frame update
+ 
     void Start()
     {
        
@@ -43,14 +41,7 @@ public class playermover : MonoBehaviour
         handleFire();
         
     }
-    public void takeDamage() 
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     public void handleMovement()
     {
         vertical = Input.GetAxisRaw("Vertical1");
@@ -123,5 +114,6 @@ public class playermover : MonoBehaviour
             }
         }
     }
+   
 
 }

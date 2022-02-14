@@ -28,9 +28,10 @@ public class projectile : MonoBehaviour
         }
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.GetComponent<playermover>() != null)
+            if (collision.GetComponent<playerHP>() != null)
             {
-                collision.GetComponent<playermover>().takeDamage();
+                collision.GetComponent<playerHP>().health-=1;
+                collision.transform.parent.GetComponent<pawn>().takedamage();
                 Destroy(gameObject);
             }
         }
