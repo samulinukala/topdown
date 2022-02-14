@@ -1451,6 +1451,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
+  invincibleColor: {r: 0.754717, g: 0.72493345, b: 0.4022784, a: 1}
+  regularColor: {r: 1, g: 0.92894423, b: 0.16509432, a: 1}
 --- !u!4 &729809071
 Transform:
   m_ObjectHideFlags: 0
@@ -1693,6 +1695,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
+  invincibleColor: {r: 0.5754717, g: 0.28502136, b: 0.28502136, a: 1}
+  regularColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!50 &1005468299
 Rigidbody2D:
   serializedVersion: 4
@@ -2660,6 +2664,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
+  invincibleColor: {r: 0.29071733, g: 0.4433962, b: 0.31214595, a: 1}
+  regularColor: {r: 0, g: 0.509434, b: 0.069922335, a: 1}
 --- !u!4 &1533850449
 Transform:
   m_ObjectHideFlags: 0
@@ -3296,6 +3302,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
+  invincibleColor: {r: 0.3270737, g: 0.3305276, b: 0.6603774, a: 1}
+  regularColor: {r: 0.08317016, g: 0.0899258, b: 0.8396226, a: 1}
 --- !u!4 &1838950693
 Transform:
   m_ObjectHideFlags: 0

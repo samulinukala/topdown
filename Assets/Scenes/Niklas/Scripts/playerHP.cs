@@ -101,9 +101,12 @@ public class playerHP : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(!invulnerable)
+        if(gameObject != null)
         {
-            StartCoroutine(damageDelayCo());
+            if (!invulnerable)
+            {
+                StartCoroutine(damageDelayCo());
+            }
         }
     }
 
