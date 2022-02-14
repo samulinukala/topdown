@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMover2 : MonoBehaviour
+public class playermover4 : MonoBehaviour
 {
-      public float horizontal;
+    public float horizontal;
     public float vertical;
     public float moveForce = 5;
     public Vector2 movementVector;
@@ -35,21 +35,14 @@ public class playerMover2 : MonoBehaviour
         handleFire();
 
     }
-    public void takeDamage()
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     public void handleMovement()
     {
-        vertical = Input.GetAxisRaw("Vertical2");
-        horizontal = Input.GetAxisRaw("Horizontal2");
+        vertical = Input.GetAxisRaw("Vertical4");
+        horizontal = Input.GetAxisRaw("Horizontal4");
         movementVector = new Vector2(horizontal, vertical).normalized * moveForce * Time.deltaTime;
-        contAHor = Input.GetAxis("AimHorizontalController2");
-        contAVer = Input.GetAxis("AimVerticalController2");
+        contAHor = Input.GetAxis("AimHorizontalController4");
+        contAVer = Input.GetAxis("AimVerticalController4");
         Debug.Log(contAHor + " , " + contAVer);
 
 
@@ -68,7 +61,7 @@ public class playerMover2 : MonoBehaviour
     }
     public void handleFire()
     {
-        if (Input.GetAxis("fireC2") > 0 & canFire == true)
+        if (Input.GetAxis("fireC4") > 0 & canFire == true)
         {
             canFire = false;
             Debug.Log("fire");
@@ -88,4 +81,5 @@ public class playerMover2 : MonoBehaviour
         }
     }
 
+}
 }

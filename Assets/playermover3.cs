@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMover2 : MonoBehaviour
+public class playermover3 : MonoBehaviour
 {
-      public float horizontal;
+    public float horizontal;
     public float vertical;
     public float moveForce = 5;
     public Vector2 movementVector;
@@ -45,11 +45,11 @@ public class playerMover2 : MonoBehaviour
     }
     public void handleMovement()
     {
-        vertical = Input.GetAxisRaw("Vertical2");
-        horizontal = Input.GetAxisRaw("Horizontal2");
+        vertical = Input.GetAxisRaw("Vertical3");
+        horizontal = Input.GetAxisRaw("Horizontal3");
         movementVector = new Vector2(horizontal, vertical).normalized * moveForce * Time.deltaTime;
-        contAHor = Input.GetAxis("AimHorizontalController2");
-        contAVer = Input.GetAxis("AimVerticalController2");
+        contAHor = Input.GetAxis("AimHorizontalController3");
+        contAVer = Input.GetAxis("AimVerticalController3");
         Debug.Log(contAHor + " , " + contAVer);
 
 
@@ -68,7 +68,7 @@ public class playerMover2 : MonoBehaviour
     }
     public void handleFire()
     {
-        if (Input.GetAxis("fireC2") > 0 & canFire == true)
+        if (Input.GetAxis("fireC3") > 0 & canFire == true)
         {
             canFire = false;
             Debug.Log("fire");
