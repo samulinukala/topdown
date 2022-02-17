@@ -828,8 +828,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
-  invincibleColor: {r: 0, g: 0, b: 0, a: 0}
-  regularColor: {r: 0, g: 0, b: 0, a: 0}
+  invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  regularColor: {r: 1, g: 0, b: 0.03653574, a: 1}
 --- !u!1 &175228257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,8 +3176,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
-  invincibleColor: {r: 0, g: 0, b: 0, a: 0}
-  regularColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  regularColor: {r: 1, g: 0.59063005, b: 0, a: 1}
 --- !u!1 &1264207992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,8 +3532,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
-  invincibleColor: {r: 0.099857606, g: 0.6415094, b: 0.4048854, a: 1}
-  regularColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  regularColor: {r: 0.099857606, g: 0.6415094, b: 0.4048854, a: 1}
 --- !u!1 &1382171439
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,8 +4614,8 @@ MonoBehaviour:
   hitParticle: {fileID: 6607374560596360900, guid: 32567cac0346bb2409f00123af644199, type: 3}
   colliders: []
   spriteRenderers: []
-  invincibleColor: {r: 0, g: 0, b: 0, a: 0}
-  regularColor: {r: 0, g: 0, b: 0, a: 0}
+  invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
+  regularColor: {r: 0, g: 1, b: 0.9218221, a: 1}
 --- !u!1 &1995646592
 GameObject:
   m_ObjectHideFlags: 0
