@@ -17,9 +17,12 @@ public class projectile : MonoBehaviour
     void Start()
     {
         playerWhoShot = GetComponentInParent<pawn>().gameObject;
+   
         playerLoc = playerWhoShot.transform.position - transform.position;
+        transform.parent = null;
 
         GetComponent<Rigidbody2D>().AddForce(-playerLoc.normalized * moveSpeed, ForceMode2D.Impulse);
+       
     }
 
     // Update is called once per frame
