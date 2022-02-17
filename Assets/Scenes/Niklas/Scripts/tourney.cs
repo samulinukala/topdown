@@ -6,7 +6,7 @@ public class tourney : MonoBehaviour
 {
     public List<int> remainingPlayers = new List<int>();
     private playerHP[] playerObjs;
-    public playerHP[] winner;
+    private playerHP[] winner;
     void Start()
     {
         playerObjs = FindObjectsOfType<playerHP>();
@@ -18,15 +18,14 @@ public class tourney : MonoBehaviour
     }
     void Update()
     {
-        playerObjs = FindObjectsOfType<playerHP>();
         winner = FindObjectsOfType<playerHP>();
 
-        for (int i = 0; i < playerObjs.Length; i++)
+        for (int i = 0; i < winner.Length; i++)
         {
-            if(playerObjs[i].health <= 0)
+            if(winner[i].health <= 0)
             {
                 remainingPlayers.Remove(i);
-                Debug.Log(playerObjs[i].gameObject.name + " on poissa pelistä!");
+                Debug.Log(winner[i].gameObject.name + " on poissa pelistä!");
             }
         }
 
