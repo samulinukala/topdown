@@ -26,7 +26,29 @@ public class playermover3 : pawn
     public float dashCooldown = 2.5f;
     public float dashCooldownCalc = 0;
     public bool dashInCoolDown = false;
-
+    public GameObject tmp;
+    public void handleFire()
+    {
+        if (Input.GetAxis("fireC3") > 0 & canFire == true)
+        {
+            canFire = false;
+            Debug.Log("fire");
+            tmp = Instantiate(projectile, gunBarrel.transform.position, transform.rotation);
+            tmp.transform.parent = gameObject.transform;
+        }
+        else
+        {
+            if (fireCooldown > fireCalc)
+            {
+                fireCalc = fireCalc + 1 * Time.deltaTime;
+            }
+            else if (fireCooldown < fireCalc)
+            {
+                fireCalc = 0;
+                canFire = true;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -98,26 +120,6 @@ public class playermover3 : pawn
 
 
     }
-    public void handleFire()
-    {
-        if (Input.GetAxis("fireC3") > 0 & canFire == true)
-        {
-            canFire = false;
-            Debug.Log("fire");
-            Instantiate(projectile, gunBarrel.transform.position, transform.rotation);
-        }
-        else
-        {
-            if (fireCooldown > fireCalc)
-            {
-                fireCalc = fireCalc + 1 * Time.deltaTime;
-            }
-            else if (fireCooldown < fireCalc)
-            {
-                fireCalc = 0;
-                canFire = true;
-            }
-        }
-    }
+    
 
 }
