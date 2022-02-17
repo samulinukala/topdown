@@ -99,11 +99,13 @@ public class playerHP : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+public void takeDamage()
     {
         if(!invulnerable)
         {
+            gameObject.GetComponentInParent<pawn>().takedamage();
             StartCoroutine(damageDelayCo());
+           
         }
     }
 
