@@ -4,35 +4,23 @@ using UnityEngine;
 
 public class tourney : MonoBehaviour
 {
-    public List<int> remainingPlayers = new List<int>();
-    private playerHP[] playerObjs;
-    private playerHP[] winner;
-    void Start()
-    {
-        playerObjs = FindObjectsOfType<playerHP>();
+    public List<playerHP> playerObjs = new List<playerHP>();
 
-        for (int i = 0; i < playerObjs.Length; i++)
-        {
-            remainingPlayers.Add(i);
-        }
-    }
     void Update()
     {
-        winner = FindObjectsOfType<playerHP>();
-
-        for (int i = 0; i < winner.Length; i++)
+        for (int i = 0; i < playerObjs.Count; i++)
         {
-            if(winner[i].health <= 0)
+            if(playerObjs[i].health <= 0)
             {
-                remainingPlayers.Remove(i);
-                Debug.Log(winner[i].gameObject.name + " on poissa pelistä!");
+                playerObjs.RemoveAt(i);
+                Debug.Log(playerObjs[i].gameObject.name + " on poissa pelistä!");
             }
         }
 
-        if(remainingPlayers.Count == 1)
+        if(playerObjs.Count == 1)
         {
             Debug.Log("Meillä on voittaja!");
-            foreach (playerHP obj in winner)
+            foreach (playerHP obj in playerObjs)
             {
                 Debug.Log("Voittaja on: " + obj.gameObject.name + "!");
             }
