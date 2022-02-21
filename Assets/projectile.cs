@@ -16,7 +16,7 @@ public class projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerWhoShot = GetComponentInParent<pawn>().gameObject;
+        playerWhoShot = GetComponentInParent<playermover>().gameObject;
    
         playerLoc = playerWhoShot.transform.position - transform.position;
         transform.parent = null;
@@ -33,7 +33,11 @@ public class projectile : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.GetComponent<projectile>() == null && collision.gameObject.GetComponent<playermover>() == null)
+        {
+            Destroy(gameObject);
+        }
+       
     }
 }
 

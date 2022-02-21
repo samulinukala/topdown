@@ -103,7 +103,7 @@ public void takeDamage()
     {
         if(!invulnerable)
         {
-            gameObject.GetComponentInParent<pawn>().takedamage();
+            gameObject.GetComponentInParent<playermover>().takedamage();
             StartCoroutine(damageDelayCo());
            
         }
