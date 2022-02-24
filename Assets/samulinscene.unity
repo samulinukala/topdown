@@ -270,6 +270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7808609848977866712, guid: 1726505de5fa5b24289339f61edd7458, type: 3}
+      propertyPath: deadZone
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7808609848977866713, guid: 1726505de5fa5b24289339f61edd7458, type: 3}
       propertyPath: m_Name
       value: player (1)
