@@ -1394,6 +1394,7 @@ MonoBehaviour:
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
   regularColor: {r: 1, g: 0, b: 0.03653574, a: 1}
+  playermover: {fileID: 1453991260833498406}
 --- !u!1 &726901235680955211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,8 +1425,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 1
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -1452,6 +1453,7 @@ MonoBehaviour:
   contAHor: 0
   contAVer: 0
   angle: 0
+  health: 4
   projectile: {fileID: 6779830397860373806, guid: 4e1b0802d49139549b1212bd420b0b1c, type: 3}
   fireCooldown: 0.5
   fireCalc: 0
@@ -1829,6 +1831,7 @@ MonoBehaviour:
   contAHor: 0
   contAVer: 0
   angle: 0
+  health: 4
   projectile: {fileID: 6779830397860373806, guid: 4e1b0802d49139549b1212bd420b0b1c, type: 3}
   fireCooldown: 0.5
   fireCalc: 0
@@ -1855,8 +1858,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 1
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -2935,6 +2938,7 @@ MonoBehaviour:
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
   regularColor: {r: 0, g: 1, b: 0.9218221, a: 1}
+  playermover: {fileID: 726901235680955213}
 --- !u!4 &2159737908195089238
 Transform:
   m_ObjectHideFlags: 0
@@ -3487,8 +3491,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 1
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -3515,6 +3519,7 @@ MonoBehaviour:
   contAHor: 0
   contAVer: 0
   angle: 0
+  health: 4
   projectile: {fileID: 6779830397860373806, guid: 4e1b0802d49139549b1212bd420b0b1c, type: 3}
   fireCooldown: 0.5
   fireCalc: 0
@@ -3655,8 +3660,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 1
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -3683,6 +3688,7 @@ MonoBehaviour:
   contAHor: 0
   contAVer: 0
   angle: 0
+  health: 4
   projectile: {fileID: 6779830397860373806, guid: 4e1b0802d49139549b1212bd420b0b1c, type: 3}
   fireCooldown: 0.5
   fireCalc: 0
@@ -4122,6 +4128,7 @@ MonoBehaviour:
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
   regularColor: {r: 0.099857606, g: 0.6415094, b: 0.4048854, a: 1}
+  playermover: {fileID: 2446069011315103921}
 --- !u!4 &3899193908892043434
 Transform:
   m_ObjectHideFlags: 0
@@ -5073,6 +5080,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1113641146995355242, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147101077104, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147299831040, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147336003912, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147676995610, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147762148086, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641147992043812, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641148108422028, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641148366292507, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113641148724832877, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4087523033515325172, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5133,6 +5180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArenaFloorWithWalls
       objectReference: {fileID: 0}
+    - target: {fileID: 4087523033515325174, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4087523033515325175, guid: 801e06dcc6d12354285f2ee0686664ff, type: 3}
       propertyPath: m_SortingOrder
       value: -42
@@ -5156,7 +5207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4176012910185917745, guid: 2462fc90c2ee30d49950dfad444d4d79, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4176012910185917746, guid: 2462fc90c2ee30d49950dfad444d4d79, type: 3}
       propertyPath: m_Name
@@ -6074,6 +6125,7 @@ MonoBehaviour:
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
   regularColor: {r: 1, g: 0.59063005, b: 0, a: 1}
+  playermover: {fileID: 3057008923153988831}
 --- !u!114 &4432170502703664032
 MonoBehaviour:
   m_ObjectHideFlags: 0

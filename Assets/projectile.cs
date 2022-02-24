@@ -33,7 +33,7 @@ public class projectile : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<projectile>() == null && collision.gameObject.GetComponent<playermover>() == null)
+        if (collision.gameObject.CompareTag("wall")==true&&collision.gameObject.GetComponent<CharacterController>()==null)
         {
             Destroy(gameObject);
         }
