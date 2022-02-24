@@ -13,7 +13,7 @@ public class playermover :MonoBehaviour
     public float contAHor;
     public float contAVer;
     public float angle;
-    int health = 4;
+    public int health = 4;
     public GameObject projectile;
     public float fireCooldown = 0.5f;
     public float fireCalc = 0;
