@@ -21,7 +21,6 @@ public class playerHP : MonoBehaviour
     public Component[] spriteRenderers;
     public Color invincibleColor;
     public Color regularColor;
-    public playermover playermover;
 
     void Start()
     {
@@ -104,7 +103,7 @@ public void takeDamage()
     {
         if(!invulnerable)
         {
-            playermover.takedamage();
+            gameObject.GetComponentInParent<playermover>().takedamage();
             StartCoroutine(damageDelayCo());
            
         }
