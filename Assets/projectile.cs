@@ -31,8 +31,11 @@ public class projectile : MonoBehaviour
     private void Update()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
+=======
+>>>>>>> parent of 47c4324 (fixed no damage)
         if (collision.gameObject.GetComponent<projectile>() == null && collision.gameObject.GetComponent<playermover>() == null)
         {
             Destroy(gameObject);
