@@ -12,8 +12,8 @@ public class tourney : MonoBehaviour
         {
             if(playerObjs[i].health <= 0)
             {
-                playerObjs.RemoveAt(i);
                 Debug.Log(playerObjs[i].gameObject.name + " on poissa pelistä!");
+                playerObjs.RemoveAt(i);
             }
         }
 
