@@ -8,7 +8,7 @@ public class playermover :MonoBehaviour
     public float vertical;
     public float moveForce = 5;
     public Vector2 movementVector;
-    public CharacterController controller;
+   
     public float deadZone = 0.025f;
     public float contAHor;
     public float contAVer;
@@ -29,39 +29,18 @@ public class playermover :MonoBehaviour
     public bool dashInCoolDown = false;
     public GameObject tmp;
     public int playerNum = 1;
-    public void handleFire()
-    {
-        if (Input.GetAxis("fireC" + playerNum) > 0 & canFire == true)
-        {
-            canFire = false;
-            Debug.Log("fire");
-            tmp = Instantiate(projectile, gunBarrel.transform.position, transform.rotation);
-            tmp.transform.parent = gameObject.transform;
-        }
-        else
-        {
-            if (fireCooldown > fireCalc)
-            {
-                fireCalc = fireCalc + 1 * Time.deltaTime;
-            }
-            else if (fireCooldown < fireCalc)
-            {
-                fireCalc = 0;
-                canFire = true;
-            }
-        }
-    }
+    
     void Start()
     {
 
-        controller = GetComponent<CharacterController>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         handleMovement();
-        handleFire();
+    
 
     }
     public void takedamage()
@@ -81,13 +60,14 @@ public class playermover :MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical" + playerNum);
         horizontal = Input.GetAxisRaw("Horizontal" + playerNum);
         movementVector = new Vector2(horizontal, vertical).normalized * moveForce * Time.deltaTime;
-        contAHor = Input.GetAxis("AimHorizontalController" + playerNum);
-        contAVer = Input.GetAxis("AimVerticalController" + playerNum);
-        Debug.Log(contAHor + " , " + contAVer);
+
+     
+
         if (dashcalc < dashlenght & isDashing == true)
         {
             dashcalc += 1 * Time.deltaTime;
-            controller.Move(movementVector.normalized * dashForce);
+          
+            transform.Translate(movementVector*dashForce);
         }
         else if (dashcalc > dashlenght & isDashing == true)
         {
@@ -95,12 +75,6 @@ public class playermover :MonoBehaviour
             isDashing = false;
         }
 
-        if (new Vector2(contAHor, contAVer).magnitude > deadZone)
-        {
-            angle = Mathf.Atan2(-contAVer, -contAHor);
-            transform.rotation = Quaternion.EulerAngles(0, 0, angle);
-
-        }
         if (dashInCoolDown == true)
         {
             if (dashCooldown > dashCooldownCalc)
@@ -128,7 +102,7 @@ public class playermover :MonoBehaviour
            if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
             {
 
-                controller.Move(movementVector);
+                transform.Translate(movementVector);
             }
         }
         if (playerNum == 2)
@@ -145,7 +119,7 @@ public class playermover :MonoBehaviour
            if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
             {
 
-                controller.Move(movementVector);
+                transform.Translate(movementVector);
             }
         }
         if (playerNum == 3)
@@ -162,7 +136,7 @@ public class playermover :MonoBehaviour
            if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
             {
 
-                controller.Move(movementVector);
+                transform.Translate(movementVector);
             }
         }
         if (playerNum == 4)
@@ -179,7 +153,7 @@ public class playermover :MonoBehaviour
            if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
             {
 
-                controller.Move(movementVector);
+                transform.Translate(movementVector);
             }
         }
 
