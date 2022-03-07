@@ -31,7 +31,7 @@ public class projectile : MonoBehaviour
     
     
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("wall")==true&&collision.gameObject.GetComponent<CharacterController>()==null)
         {

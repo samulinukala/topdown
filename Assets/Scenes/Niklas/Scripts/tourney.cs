@@ -7,16 +7,12 @@ public class tourney : MonoBehaviour
 {
     public List<GameObject> playerObjs = new List<GameObject>();
     public int[] playerLives;
-
+    public List<GameObject> deadPlayers;
     
 
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(0);
-        }
+      
 
 
         {
@@ -42,7 +38,23 @@ public class tourney : MonoBehaviour
             }
             startNewGame();
         }
+        for( int i =0;i<playerLives.Length;i++)
+        {
+            if (playerLives[i] == 0)
+            {
+                if (deadPlayers.Contains(playerObjs[i])) {
+                    deadPlayers.Add(playerObjs[i]);
+            } }
+            
+
+            
+        }
+        if (deadPlayers.Count > 3)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
+    
     public void startNewGame()
     {
         for(int i = 0; i < playerLives.Length;i++)
@@ -58,7 +70,7 @@ public class tourney : MonoBehaviour
                     playerObjs[i].GetComponent<playermover>().resetPlayer();
                     GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer(playerObjs[i]);
 
-                    playerLives[i] = 3;
+                    
                 }
             }
         }
