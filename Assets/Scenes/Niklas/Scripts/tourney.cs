@@ -49,9 +49,11 @@ public class tourney : MonoBehaviour
         {
             if (playerLives[i] > 0)
             {
-                playerObjs[i].active = true;
-                GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer( playerObjs[i]);
                 playerObjs[i].GetComponent<playermover>().resetPlayer();
+                playerObjs[i].SetActive( true);
+                playerObjs[i].GetComponent<playermover>().resetPlayer();
+                GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer( playerObjs[i]);
+                
                 playerLives[i] = 3;
             }
         }
