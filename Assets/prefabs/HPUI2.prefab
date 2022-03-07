@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2773664461375868802}
   m_Layer: 5
   m_Name: FillBar
-  m_TagString: Untagged
+  m_TagString: FillBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 5982509017696470011}
   m_Layer: 5
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: FillCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

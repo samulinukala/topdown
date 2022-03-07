@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 182881282450394382}
   m_Layer: 5
   m_Name: FillBar
-  m_TagString: Untagged
+  m_TagString: FillBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 8642852910490157431}
   m_Layer: 5
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: FillCircle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
