@@ -50,6 +50,7 @@ public class playermover :MonoBehaviour
         health -= 1;
         if (health < 1)
         {
+            GameObject.FindObjectOfType<tourney>().playerLives[playerNum-1] -= 1;
             Destroy(gameObject);
         }
 

@@ -107,7 +107,7 @@ MonoBehaviour:
   colliders: []
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
-  regularColor: {r: 0.099857606, g: 0.6415094, b: 0.4048854, a: 1}
+  regularColor: {r: 0, g: 0.6388858, b: 0.990566, a: 1}
   playermover: {fileID: 8244863529266409624}
 --- !u!1 &7315311785520154604
 GameObject:
@@ -1235,7 +1235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8244863529266409630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.8, y: 23.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6024001541902000644}

@@ -6,6 +6,7 @@ public class PlayerSpawn : MonoBehaviour
 {
     [SerializeField] GameObject[] spawnPoints;
     [SerializeField] float spawnDelay = 0;
+   
 
     public void SpawnPlayer(GameObject player)
     {
