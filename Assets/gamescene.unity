@@ -407,7 +407,7 @@ MonoBehaviour:
   - {fileID: 716451200}
   - {fileID: 692303724}
   - {fileID: 1072836604}
-  spawnDelay: 0
+  spawnDelay: 5
 --- !u!4 &1511335444
 Transform:
   m_ObjectHideFlags: 0
