@@ -12,22 +12,7 @@ public class tourney : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < playerObjs.Count; i++)
-        {
-
-            if (playerObjs[i].activeInHierarchy == false)
-            {
-                deadPlayers.Add(playerObjs[i]);
-            }
-                
-             
-                Debug.Log("pelaaja "+i + " on poissa pelistä!");
-            
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(0);
-        }
+      
 
 
         {
@@ -37,27 +22,59 @@ public class tourney : MonoBehaviour
             {
                 Debug.Log("Voittaja on: " + obj.gameObject.name + "!");
             }
-            if (deadPlayers.Count > 2)
+
+           
+            
+            for (int i = 0; i < playerObjs.Count; i++)
             {
-                startNewGame();
+
+                if (playerObjs[i].activeInHierarchy == false)
+                {
+                   
+                }
+
+                Debug.Log("pelaaja " + i + " on poissa pelistä!");
+
             }
+            startNewGame();
+        }
+        for( int i =0;i<playerLives.Length;i++)
+        {
+            if (playerLives[i] == 0)
+            {
+                if (deadPlayers.Contains(playerObjs[i])) {
+                    deadPlayers.Add(playerObjs[i]);
+            } }
+            
+
+            
+        }
+        if (deadPlayers.Count > 3)
+        {
+            SceneManager.LoadScene(0);
         }
     }
+    
     public void startNewGame()
     {
-        for(int i = 0; i < deadPlayers.Count;i++)
+        for(int i = 0; i < playerLives.Length;i++)
         {
             if (playerLives[i] > 0)
             {
-                playerObjs[i].GetComponent<playermover>().resetPlayer();
-                playerObjs[i].SetActive( true);
-                playerObjs[i].GetComponent<playermover>().resetPlayer();
-                GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer( playerObjs[i]);
-                
-                playerLives[i] = 3;
+                if (playerObjs[i].activeInHierarchy==false)
+                {
+
+
+
+                    playerObjs[i].SetActive(true);
+                    playerObjs[i].GetComponent<playermover>().resetPlayer();
+                    GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer(playerObjs[i]);
+
+                    
+                }
             }
         }
-        deadPlayers.Clear();
+        
         
     }
 }
