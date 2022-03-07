@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     [SerializeField] GameObject[] spawnPoints;
-    [SerializeField] float spawnDelay = 0;
+    [SerializeField] float spawnDelay = 5;
    
 
     public void SpawnPlayer(GameObject player)
@@ -13,7 +13,7 @@ public class PlayerSpawn : MonoBehaviour
         StartCoroutine(SpawnPlayerIE(player));
     }
 
-    private IEnumerator SpawnPlayerIE(GameObject player)
+    public IEnumerator SpawnPlayerIE(GameObject player)
     {
         yield return new WaitForSeconds(spawnDelay);
         Debug.Log("spawn");

@@ -15,29 +15,12 @@ public class tourney : MonoBehaviour
       
 
 
-        {
-            Debug.Log("Meillä on voittaja!");
-
-            foreach (GameObject obj in playerObjs)
-            {
-                Debug.Log("Voittaja on: " + obj.gameObject.name + "!");
-            }
-
+        
            
             
-            for (int i = 0; i < playerObjs.Count; i++)
-            {
-
-                if (playerObjs[i].activeInHierarchy == false)
-                {
-                   
-                }
-
-                Debug.Log("pelaaja " + i + " on poissa pelistä!");
-
-            }
-            startNewGame();
-        }
+           
+            s();
+        
         for( int i =0;i<playerLives.Length;i++)
         {
             if (playerLives[i] == 0)
@@ -55,7 +38,7 @@ public class tourney : MonoBehaviour
         }
     }
     
-    public void startNewGame()
+    public void PlayerSpawning()
     {
         for(int i = 0; i < playerLives.Length;i++)
         {
@@ -66,11 +49,12 @@ public class tourney : MonoBehaviour
 
 
 
-                    playerObjs[i].SetActive(true);
-                    playerObjs[i].GetComponent<playermover>().resetPlayer();
                     GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer(playerObjs[i]);
 
+                    playerObjs[i].GetComponent<playermover>().resetPlayer();
                     
+
+
                 }
             }
         }

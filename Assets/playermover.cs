@@ -29,18 +29,27 @@ public class playermover :MonoBehaviour
     public bool dashInCoolDown = false;
     public GameObject tmp;
     public int playerNum = 1;
-    
+    private BoxCollider2D collider;
+    public float width = 0.4f;
+    public float height = 0.4f;
     void Start()
     {
 
-       
+        collider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         handleMovement();
-    
+        if (health > 1)
+        {
+            collider.size = new Vector2(1,1);
+        }
+        else
+        {
+            collider.size = new Vector2(width, height);
+        }
 
     }
     public void resetPlayer()
