@@ -8,12 +8,12 @@ public class playermover :MonoBehaviour
     public float vertical;
     public float moveForce = 5;
     public Vector2 movementVector;
-   
+    public int maxHealth = 4;
     public float deadZone = 0.025f;
     public float contAHor;
     public float contAVer;
     public float angle;
-    public int health = 4;
+    public int health;
     public GameObject projectile;
     public float fireCooldown = 0.5f;
     public float fireCalc = 0;
@@ -43,6 +43,13 @@ public class playermover :MonoBehaviour
     
 
     }
+    public void resetPlayer()
+    {
+        health = maxHealth;
+        gameObject.GetComponentInChildren<playerHP>().resetPlayer();
+        Debug.Log("reset");
+    }
+   
     public void takedamage()
     {
         Debug.Log("damage To pawn");
@@ -51,7 +58,7 @@ public class playermover :MonoBehaviour
         if (health < 1)
         {
             GameObject.FindObjectOfType<tourney>().playerLives[playerNum-1] -= 1;
-            Destroy(gameObject);
+            gameObject.active = false;
         }
 
     }

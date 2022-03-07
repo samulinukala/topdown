@@ -16,9 +16,10 @@ public class PlayerSpawn : MonoBehaviour
     private IEnumerator SpawnPlayerIE(GameObject player)
     {
         yield return new WaitForSeconds(spawnDelay);
-
+        Debug.Log("spawn");
         int rnd = Random.Range(0, spawnPoints.Length);
         player.transform.position = spawnPoints[rnd].transform.position;
         player.SetActive(true);
+        player.GetComponent<playermover>().resetPlayer();
     }
 }

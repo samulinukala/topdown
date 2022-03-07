@@ -34,6 +34,11 @@ public class playerHP : MonoBehaviour
         hp1Sprite.SetActive(false);
         invulnerable = false;
     }
+    public void resetPlayer()
+    {
+        health = maxHealth;
+    }
+    
 
     void Update()
     {
@@ -123,6 +128,6 @@ public void takeDamage()
     {
         Instantiate(hitParticle, gameObject.transform.position, gameObject.transform.rotation);
         yield return new WaitForSeconds(deathDelay);
-        Destroy(gameObject);
+       
     }
 }
