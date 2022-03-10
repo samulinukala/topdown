@@ -105,11 +105,11 @@ public class playerHP : MonoBehaviour
         }
     }
 
-public void takeDamage()
+public void takeDamage(GameObject fromWhatPlayer)
     {
         if(!invulnerable)
         {
-            playermover.takedamage();
+            playermover.takedamage(fromWhatPlayer);
             StartCoroutine(damageDelayCo());
            
         }

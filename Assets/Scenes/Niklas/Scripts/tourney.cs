@@ -9,6 +9,7 @@ public class tourney : MonoBehaviour
     public int[] playerLives;
     public List<GameObject> deadPlayers;
     public List<GameObject> playersInSpawn;
+    public List<int> playerScores;
 
     void Update()
     {
@@ -37,7 +38,16 @@ public class tourney : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
-    
+    public void addScoreToPlayer(GameObject player)
+    {
+        for(int i = 0; i < playerScores.Count; i++)
+        {
+            if (playerObjs[i] == player)
+            {
+                playerScores[i] += 1;
+            }
+        }
+    }
     public void PlayerSpawning()
     {
         for(int i = 0; i < playerLives.Length;i++)
@@ -46,15 +56,10 @@ public class tourney : MonoBehaviour
             {
                 if (playerObjs[i].activeInHierarchy==false&&!playersInSpawn.Contains(playerObjs[i]))
                 {
-
-
                     playersInSpawn.Add(playerObjs[i]);
                     GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer(playerObjs[i]);
 
                     playerObjs[i].GetComponent<playermover>().resetPlayer();
-                    
-
-
                 }
             }
         }

@@ -483,6 +483,7 @@ MonoBehaviour:
   playerLives: 03000000030000000300000003000000
   deadPlayers: []
   playersInSpawn: []
+  playerScores: 00000000000000000000000000000000
 --- !u!1 &1566507971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 448847449204362247, guid: 2462fc90c2ee30d49950dfad444d4d79, type: 3}

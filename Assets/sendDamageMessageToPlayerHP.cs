@@ -9,7 +9,7 @@ public class sendDamageMessageToPlayerHP : MonoBehaviour
         if (collision.GetComponent<projectile>() != null)
         {
             Destroy(collision.gameObject);
-            gameObject.GetComponentInParent<playerHP>().takeDamage();
+            gameObject.GetComponentInParent<playerHP>().takeDamage(collision.gameObject.GetComponent<projectile>().playerWhoShot);
             
             
         }

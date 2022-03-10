@@ -59,16 +59,18 @@ public class playermover :MonoBehaviour
         Debug.Log("reset");
     }
    
-    public void takedamage()
+    public void takedamage(GameObject fromWhatPlayer)
     {
         Debug.Log("damage To pawn");
 
         health -= 1;
         if (health < 1)
         {
+            GameObject.FindObjectOfType<tourney>().addScoreToPlayer(fromWhatPlayer);
             GameObject.FindObjectOfType<tourney>().playerLives[playerNum-1] -= 1;
             gameObject.active = false;
         }
+
 
     }
 
