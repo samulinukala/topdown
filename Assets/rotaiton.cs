@@ -14,6 +14,7 @@ public class rotaiton : MonoBehaviour
     {
         if (Input.GetAxis("fireC" + playermover.playerNum) > 0 & playermover.canFire == true)
         {
+            playermover.fireCalc = 0;
             playermover.canFire = false;
             Debug.Log("fire");
             playermover.tmp = Instantiate(playermover.projectile, playermover.gunBarrel.transform.position, transform.rotation);
@@ -27,7 +28,7 @@ public class rotaiton : MonoBehaviour
             }
             else if (playermover.fireCooldown < playermover.fireCalc)
             {
-                playermover.fireCalc = 0;
+               
                 playermover.canFire = true;
             }
         }

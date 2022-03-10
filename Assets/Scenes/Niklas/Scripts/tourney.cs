@@ -8,18 +8,18 @@ public class tourney : MonoBehaviour
     public List<GameObject> playerObjs = new List<GameObject>();
     public int[] playerLives;
     public List<GameObject> deadPlayers;
-    
+    public List<GameObject> playersInSpawn;
 
     void Update()
     {
-      
 
 
-        
-           
-            
-           
-            s();
+
+
+
+
+
+        PlayerSpawning();
         
         for( int i =0;i<playerLives.Length;i++)
         {
@@ -44,11 +44,11 @@ public class tourney : MonoBehaviour
         {
             if (playerLives[i] > 0)
             {
-                if (playerObjs[i].activeInHierarchy==false)
+                if (playerObjs[i].activeInHierarchy==false&&!playersInSpawn.Contains(playerObjs[i]))
                 {
 
 
-
+                    playersInSpawn.Add(playerObjs[i]);
                     GameObject.FindObjectOfType<PlayerSpawn>().SpawnPlayer(playerObjs[i]);
 
                     playerObjs[i].GetComponent<playermover>().resetPlayer();

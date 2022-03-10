@@ -21,5 +21,6 @@ public class PlayerSpawn : MonoBehaviour
         player.transform.position = spawnPoints[rnd].transform.position;
         player.SetActive(true);
         player.GetComponent<playermover>().resetPlayer();
+        FindObjectOfType<tourney>().playersInSpawn.Remove(player);
     }
 }
