@@ -7,15 +7,23 @@ public class PlayerUIControl : MonoBehaviour
 {
     [Tooltip("UI element for this player")]
     [SerializeField] GameObject hpUI;
-
+   
+    private int playerNum;
     private RectTransform fillBar;
-    private Image fillCircle;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         fillBar = FindDescendantWithTag("FillBar", hpUI).GetComponent<RectTransform>();
-        fillCircle = FindDescendantWithTag("FillCircle", hpUI).GetComponent<Image>();
+        playerNum = gameObject.GetComponent<playermover>().playerNum;
+    }
+   public void updateHealthBar()
+    {
+        if (GameObject.FindObjectOfType<tourney>().playerLives[playerNum - 1] == 3) UpdateHealthBar(1);
+        if (GameObject.FindObjectOfType<tourney>().playerLives[playerNum - 1] == 2) UpdateHealthBar(0.66666f);
+        if (GameObject.FindObjectOfType<tourney>().playerLives[playerNum - 1] == 1) UpdateHealthBar(0.3333333f);
+        if (GameObject.FindObjectOfType<tourney>().playerLives[playerNum - 1] == 0) UpdateHealthBar(0);
     }
 
     // Recursive search for the GameObject with the given tag
@@ -41,8 +49,5 @@ public class PlayerUIControl : MonoBehaviour
     }
 
     // Parameter should be between 0 - 1
-    public void UpdateDashCooldown(float percentage)
-    {
-        fillCircle.fillAmount = percentage;
-    }
+   
 }

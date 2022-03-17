@@ -109,6 +109,7 @@ public void takeDamage(GameObject fromWhatPlayer)
     {
         if(!invulnerable)
         {
+           
             playermover.takedamage(fromWhatPlayer);
             StartCoroutine(damageDelayCo());
            

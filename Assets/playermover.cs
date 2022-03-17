@@ -62,12 +62,16 @@ public class playermover :MonoBehaviour
     public void takedamage(GameObject fromWhatPlayer)
     {
         Debug.Log("damage To pawn");
-
+       
+         
+        
         health -= 1;
+       
         if (health < 1)
         {
             GameObject.FindObjectOfType<tourney>().addScoreToPlayer(fromWhatPlayer);
             GameObject.FindObjectOfType<tourney>().playerLives[playerNum-1] -= 1;
+            GetComponent<PlayerUIControl>().updateHealthBar();
             gameObject.active = false;
         }
 
@@ -107,9 +111,8 @@ public class playermover :MonoBehaviour
                 dashInCoolDown = false;
             }
         }
-        if (playerNum == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button0) & dashInCoolDown == false)
+       
+            if (Input.GetAxis("dash"+playerNum)>0)
             {
                 //  dashLocation = dashMarker.transform.position-transform.position;
                 Debug.Log("dash");
@@ -123,58 +126,8 @@ public class playermover :MonoBehaviour
 
                 transform.Translate(movementVector);
             }
-        }
-        if (playerNum == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick2Button0) & dashInCoolDown == false)
-            {
-                //  dashLocation = dashMarker.transform.position-transform.position;
-                Debug.Log("dash");
-                isDashing = true;
-                dashInCoolDown = true;
-            }
-            else
-           // Debug.Log("move"+movementVector);
-           if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
-            {
-
-                transform.Translate(movementVector);
-            }
-        }
-        if (playerNum == 3)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick3Button0) & dashInCoolDown == false)
-            {
-                //  dashLocation = dashMarker.transform.position-transform.position;
-                Debug.Log("dash");
-                isDashing = true;
-                dashInCoolDown = true;
-            }
-            else
-           // Debug.Log("move"+movementVector);
-           if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
-            {
-
-                transform.Translate(movementVector);
-            }
-        }
-        if (playerNum == 4)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick4Button0) & dashInCoolDown == false)
-            {
-                //  dashLocation = dashMarker.transform.position-transform.position;
-                Debug.Log("dash");
-                isDashing = true;
-                dashInCoolDown = true;
-            }
-            else
-           // Debug.Log("move"+movementVector);
-           if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
-            {
-
-                transform.Translate(movementVector);
-            }
-        }
+       
+       
 
 
     }
