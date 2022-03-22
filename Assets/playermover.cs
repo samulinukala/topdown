@@ -90,14 +90,21 @@ public class playermover :MonoBehaviour
         {
             dashcalc += 1 * Time.deltaTime;
           
-            transform.Translate(movementVector*dashForce);
+            
         }
         else if (dashcalc > dashlenght & isDashing == true)
         {
             dashcalc = 0;
             isDashing = false;
+           
         }
-
+        if (isDashing == false)
+        {
+            transform.Translate(movementVector);
+        }else if (isDashing==true)
+        {
+            transform.Translate(movementVector * dashForce);
+        }
         if (dashInCoolDown == true)
         {
             if (dashCooldown > dashCooldownCalc)
@@ -111,24 +118,18 @@ public class playermover :MonoBehaviour
                 dashInCoolDown = false;
             }
         }
-       
-            if (Input.GetAxis("dash"+playerNum)>0)
+        else if(dashInCoolDown==false)
+        {
+
+            if (Input.GetAxis("dash" + playerNum) > 0)
             {
                 //  dashLocation = dashMarker.transform.position-transform.position;
                 Debug.Log("dash");
                 isDashing = true;
                 dashInCoolDown = true;
             }
-            else
-           // Debug.Log("move"+movementVector);
-           if (new Vector2(horizontal, vertical).magnitude > movementDeadZone)
-            {
 
-                transform.Translate(movementVector);
-            }
+        }
        
-       
-
-
     }
 }

@@ -11,7 +11,7 @@ public class tourney : MonoBehaviour
     public int[] playerLives;
     public List<GameObject> deadPlayers;
     public List<GameObject> playersInSpawn;
-    public List<int> playerScores;
+ 
     public Image leader;
     public Color[] playerColors;
     public bool gameOver = false;
@@ -102,26 +102,8 @@ public class tourney : MonoBehaviour
             }
             timeLeft.text ="Time left: "+((float)((int)gameTimer)).ToString();
             gameTimer -= 1 * Time.deltaTime;
-            if (playerScores[0] > playerScores[1] & playerScores[0] > playerScores[2] & playerScores[0] > playerScores[3])
-            {
-                leader.color = playerColors[0];
-                Currleader = 0;
-            }
-            if (playerScores[1] > playerScores[0] & playerScores[1] > playerScores[2] & playerScores[1] > playerScores[3])
-            {
-                leader.color = playerColors[1];
-                Currleader = 1;
-            }
-            if (playerScores[2] > playerScores[1] & playerScores[2] > playerScores[0] & playerScores[2] > playerScores[3])
-            {
-                leader.color = playerColors[2];
-                Currleader = 2;
-            }
-            if (playerScores[3] > playerScores[1] & playerScores[3] > playerScores[2] & playerScores[3] > playerScores[0])
-            {
-                leader.color = playerColors[3];
-                Currleader = 3;
-            }
+            sortedList.OrderByDescending(e => e.score);
+            Currleader = sortedList[0].playerNum;
 
 
 
@@ -147,15 +129,20 @@ public class tourney : MonoBehaviour
     }
     public void addScoreToPlayer(GameObject player)
     {
-        for(int i = 0; i < playerScores.Count; i++)
+        
+        
+        for(int i = 0; i < sortedList.Count; i++)
         {
             if (playerObjs[i] == player)
             {
-                playerScores[i] += 1;
-                leaderBoardValues[i].score += 1;
+                sortedList.First(player => player.playerNum == i).score += 1;
+
+                //sortedList.
+                //leaderBoardValues[i].score += 1;
 
             }
         }
+        
     }
     public void PlayerSpawning()
     {

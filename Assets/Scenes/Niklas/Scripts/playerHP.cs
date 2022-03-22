@@ -22,6 +22,7 @@ public class playerHP : MonoBehaviour
     public Color invincibleColor;
     public Color regularColor;
     public playermover playermover;
+    public Color dashColor;
 
     void Start()
     {
@@ -42,6 +43,8 @@ public class playerHP : MonoBehaviour
 
     void Update()
     {
+       
+       
         if(health >= maxHealth)
         {
             health = maxHealth;
@@ -91,7 +94,17 @@ public class playerHP : MonoBehaviour
             {
                 boxObj.GetComponent<BoxCollider2D>().enabled = false;
             }
-        }
+        }else  if (transform.GetComponentInParent<playermover>().dashInCoolDown == true)
+            {
+            foreach (SpriteRenderer obj in spriteRenderers)
+            {
+                obj.GetComponent<SpriteRenderer>().color = dashColor;
+            }
+            foreach (BoxCollider2D boxObj in colliders)
+            {
+                boxObj.GetComponent<BoxCollider2D>().enabled = true;
+            }
+        }else
         if (!invulnerable)
         {
             foreach (SpriteRenderer obj in spriteRenderers)
@@ -103,6 +116,7 @@ public class playerHP : MonoBehaviour
                 boxObj.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
+
     }
 
 public void takeDamage(GameObject fromWhatPlayer)
