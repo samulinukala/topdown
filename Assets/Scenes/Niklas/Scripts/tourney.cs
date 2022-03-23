@@ -21,6 +21,7 @@ public class tourney : MonoBehaviour
     public Canvas winScreen;
     public bool DoOnce=false;
     public Text timeLeft;
+    public Text gameOverText;
     public List<GameObject> playersOutOfLives;
     public Text[] playerScoreTexts;
     public Image[] leaderPostions;
@@ -52,9 +53,10 @@ public class tourney : MonoBehaviour
             if (DoOnce == false)
             {
                 DoOnce = true;
+                StartCoroutine(delay());
                 updateWinScreen();
             }
-            winScreen.enabled = true;
+
             if (doNothingTimer > 0)
             {
                 doNothingTimer -= 1 * Time.deltaTime;
@@ -86,13 +88,15 @@ public class tourney : MonoBehaviour
             }
             timeLeft.text ="Time left: "+((float)((int)gameTimer)).ToString();
             gameTimer -= 1 * Time.deltaTime;
-           
-           
 
-
-
-
-
+            if (gameTimer <= 10)
+            {
+                timeLeft.GetComponent<Text>().color = Color.red;
+            }
+            else
+            {
+                timeLeft.GetComponent<Text>().color = Color.white;
+            }
 
             PlayerSpawning();
 
@@ -110,6 +114,14 @@ public class tourney : MonoBehaviour
 
             }
         }
+    }
+
+    public IEnumerator delay()
+    {
+        gameOverText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        gameOverText.gameObject.SetActive(false);
+        winScreen.enabled = true;
     }
     public void addScoreToPlayer(GameObject player)
     {
