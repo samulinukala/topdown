@@ -641,6 +641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1147149662348960274}
   - component: {fileID: 1147149662348960275}
+  - component: {fileID: 599697326}
   m_Layer: 0
   m_Name: rotationsRoot
   m_TagString: Untagged
@@ -677,6 +678,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d6384d301c3684297a81819ef24ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Asource: {fileID: 0}
+--- !u!82 &599697326
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147149662348960277}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 631c4914e55974749978ca130ff23892, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1.5
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1147149662385061975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,8 +1100,9 @@ MonoBehaviour:
   colliders: []
   spriteRenderers: []
   invincibleColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
-  regularColor: {r: 1, g: 0, b: 0.03653574, a: 1}
+  regularColor: {r: 0, g: 0.53018355, b: 1, a: 1}
   playermover: {fileID: 1147149662891233851}
+  dashColor: {r: 0, g: 0.40455055, b: 0.764151, a: 1}
 --- !u!1 &1147149662762397728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1319,7 @@ GameObject:
   - component: {fileID: 1147149662891233851}
   - component: {fileID: 1147149662891233850}
   - component: {fileID: 1147149662891233853}
+  - component: {fileID: 1573845820}
   m_Layer: 0
   m_Name: player (2)
   m_TagString: Untagged
@@ -1258,6 +1358,7 @@ MonoBehaviour:
   vertical: 0
   moveForce: 20
   movementVector: {x: 0, y: 0}
+  maxHealth: 4
   deadZone: 0.4
   contAHor: 0
   contAVer: 0
@@ -1278,6 +1379,8 @@ MonoBehaviour:
   dashInCoolDown: 0
   tmp: {fileID: 0}
   playerNum: 3
+  width: 0.4
+  height: 0.4
 --- !u!61 &1147149662891233850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1325,3 +1428,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1573845820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147149662891233852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ddf10c961ee864182c17ff08df5ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpUI: {fileID: 0}

@@ -32,9 +32,11 @@ public class playermover :MonoBehaviour
     private BoxCollider2D collider;
     public float width = 0.4f;
     public float height = 0.4f;
+    
+
     void Start()
     {
-
+        
         collider = GetComponent<BoxCollider2D>();
     }
 

@@ -9,13 +9,11 @@ public class projectile : MonoBehaviour
     public GameObject playerWhoShot;
 
     public GameObject spawnPoint;
-
-    // Start is called before the first frame update
- 
+    
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         playerWhoShot = GetComponentInParent<playermover>().gameObject;
    
         playerLoc = playerWhoShot.transform.position - transform.position;
@@ -25,12 +23,7 @@ public class projectile : MonoBehaviour
        
     }
 
-    // Update is called once per frame
-    
-
-    
-    
-
+    //Checks wall collision and destroys projectiles
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("wall")==true&&collision.gameObject.GetComponent<CharacterController>()==null)

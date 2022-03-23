@@ -26,11 +26,11 @@ public class tourney : MonoBehaviour
     public Text[] playerScoreTexts;
     public Image[] leaderPostions;
     public int Currleader;
-   public List<leaderBoardValue> sortedList;
-    
+    public List<leaderBoardValue> sortedList;
+    public AudioSource MusicSource;
     public void Start()
     {
-        
+        MusicSource = GetComponent<AudioSource>();
 
     }
     public void updateWinScreen()

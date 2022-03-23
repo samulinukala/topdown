@@ -5,9 +5,11 @@ using UnityEngine;
 public class rotaiton : MonoBehaviour
 {
      playermover playermover;
+    public AudioSource Asource;
     // Start is called before the first frame update
     void Start()
     {
+        Asource = GetComponent<AudioSource>();
         playermover = GetComponentInParent<playermover>();
     }
     public void handleFire()
@@ -17,6 +19,7 @@ public class rotaiton : MonoBehaviour
             playermover.fireCalc = 0;
             playermover.canFire = false;
             Debug.Log("fire");
+            Asource.Play();
             playermover.tmp = Instantiate(playermover.projectile, playermover.gunBarrel.transform.position, transform.rotation);
             playermover.tmp.transform.parent = gameObject.transform;
         }
