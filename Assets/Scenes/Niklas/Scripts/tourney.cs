@@ -83,7 +83,7 @@ public class tourney : MonoBehaviour
                 }
             }
         }
-       
+        leader.color = playerColors[Currleader];
         if (playersOutOfLives.Count == 3||gameTimer<0)
         {
             gameOver = true;
@@ -135,8 +135,8 @@ public class tourney : MonoBehaviour
         {
             if (playerObjs[i] == player)
             {
-                sortedList.First(player => player.playerNum == i).score += 1;
-
+                //sortedList.First(player => player.playerNum == i).score += 1;
+              
                 //sortedList.
                 //leaderBoardValues[i].score += 1;
 
