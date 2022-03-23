@@ -1461,7 +1461,6 @@ MonoBehaviour:
   - {r: 0, g: 0.53018355, b: 1, a: 1}
   - {r: 1, g: 0, b: 0.040935516, a: 1}
   gameOver: 0
-  leaderBoardValues: []
   gameTimer: 120
   doNothingTimer: 3
   winScreen: {fileID: 830438792}
@@ -1482,16 +1481,12 @@ MonoBehaviour:
   sortedList:
   - score: 0
     playerNum: 0
-    placeInTheLeaderBoard: 0
   - score: 0
-    playerNum: 0
-    placeInTheLeaderBoard: 0
+    playerNum: 1
   - score: 0
-    playerNum: 0
-    placeInTheLeaderBoard: 0
+    playerNum: 2
   - score: 0
-    playerNum: 0
-    placeInTheLeaderBoard: 0
+    playerNum: 3
 --- !u!1 &1566507971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 448847449204362247, guid: 2462fc90c2ee30d49950dfad444d4d79, type: 3}

@@ -15,7 +15,7 @@ public class tourney : MonoBehaviour
     public Image leader;
     public Color[] playerColors;
     public bool gameOver = false;
-    public List<leaderBoardValue> leaderBoardValues;
+   
     public float gameTimer=120;
     public float doNothingTimer=3f;
     public Canvas winScreen;
@@ -26,35 +26,19 @@ public class tourney : MonoBehaviour
     public Image[] leaderPostions;
     public int Currleader;
    public List<leaderBoardValue> sortedList;
+    
     public void Start()
     {
-        leaderBoardValues.Add(new leaderBoardValue(0,0));
-        leaderBoardValues.Add(new leaderBoardValue(0, 1));
-        leaderBoardValues.Add(new leaderBoardValue(0, 2));
-        leaderBoardValues.Add(new leaderBoardValue(0, 3));
+        
 
     }
     public void updateWinScreen()
     {
-        for (int i = 0; i < 11; i++) {
-            foreach (leaderBoardValue l in leaderBoardValues)
-            {
-                foreach (leaderBoardValue lb in leaderBoardValues)
-                {
-                    if (l != lb)
-                    {
-                        if (l.score > lb.score)
-                        {
-                            l.placeInTheLeaderBoard -= 1;
-                            lb.placeInTheLeaderBoard += 1;
-                        }
-                    }
-                }
-            }
-           
-        }
-        sortedList = leaderBoardValues.OrderBy(x => x.placeInTheLeaderBoard).ToList();
-        for (int i = 0; i < leaderBoardValues.Count; i++)
+       
+        sortedList = sortedList.OrderByDescending(e => e.score).ToList();
+        Currleader = sortedList[0].playerNum;
+        leader.color = playerColors[Currleader];
+        for (int i = 0; i < sortedList.Count; i++)
         {
             leaderPostions[i].color = playerColors[i];
             playerScoreTexts[i].text = "Score: " + sortedList[i].score.ToString();
@@ -102,8 +86,8 @@ public class tourney : MonoBehaviour
             }
             timeLeft.text ="Time left: "+((float)((int)gameTimer)).ToString();
             gameTimer -= 1 * Time.deltaTime;
-            sortedList.OrderByDescending(e => e.score);
-            Currleader = sortedList[0].playerNum;
+           
+           
 
 
 
@@ -129,20 +113,27 @@ public class tourney : MonoBehaviour
     }
     public void addScoreToPlayer(GameObject player)
     {
-        
-        
+
+        Debug.Log("score");
         for(int i = 0; i < sortedList.Count; i++)
         {
             if (playerObjs[i] == player)
             {
-                //sortedList.First(player => player.playerNum == i).score += 1;
-              
-                //sortedList.
-                //leaderBoardValues[i].score += 1;
-
+                foreach(leaderBoardValue p in sortedList) {
+                    if (p.playerNum == i)
+                    {
+                        Debug.Log("add score to:" +p.playerNum);
+                        p.score += 1;
+                    }
+                }
+           
             }
         }
-        
+        sortedList= sortedList.OrderByDescending(e => e.score).ToList();
+        Currleader = sortedList[0].playerNum;
+        leader.color = playerColors[Currleader];
+
+
     }
     public void PlayerSpawning()
     {
@@ -168,7 +159,6 @@ public class leaderBoardValue
 {
     public int score;
     public int playerNum;
-    public int placeInTheLeaderBoard=1;
    public leaderBoardValue(int _score,int _playerNum)
     {
         score = _score;
